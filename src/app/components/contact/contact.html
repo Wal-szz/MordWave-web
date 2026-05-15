@@ -115,6 +115,10 @@
             }
           </button>
 
+          @if (error()) {
+            <p class="contact__send-error" role="alert">{{ error() }}</p>
+          }
+
         </form>
       }
 

@@ -106,6 +106,16 @@
   color: #e05555;
 }
 
+.contact__send-error {
+  font-size: 0.875rem;
+  color: #e05555;
+  background: rgba(224, 85, 85, 0.08);
+  border: 1px solid rgba(224, 85, 85, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+}
+
 .contact__submit {
   align-self: flex-start;
   min-width: 180px;

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -10,9 +11,11 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 })
 export class Contact {
   private fb = inject(FormBuilder);
+  private http = inject(HttpClient);
 
   readonly submitted = signal(false);
   readonly sending = signal(false);
+  readonly error = signal<string | null>(null);
 
   form = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
@@ -27,12 +30,19 @@ export class Contact {
       return;
     }
     this.sending.set(true);
-    // Simulate sending — replace with real EmailJS / API call
-    setTimeout(() => {
-      this.sending.set(false);
-      this.submitted.set(true);
-      this.form.reset();
-    }, 1200);
+    this.error.set(null);
+
+    this.http.post('/api/contact', this.form.value).subscribe({
+      next: () => {
+        this.sending.set(false);
+        this.submitted.set(true);
+        this.form.reset();
+      },
+      error: () => {
+        this.sending.set(false);
+        this.error.set('Hubo un error al enviar el mensaje. Intentá de nuevo o escribinos a mordewave@gmail.com');
+      },
+    });
   }
 
   hasError(field: string, error: string): boolean {
