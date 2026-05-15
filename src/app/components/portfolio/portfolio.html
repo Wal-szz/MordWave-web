@@ -11,9 +11,21 @@
       @for (project of projects(); track project.id) {
         <li class="portfolio__card">
           <div class="portfolio__preview" [style.--accent]="project.accentColor">
-            <div class="portfolio__preview-inner">
-              <span class="portfolio__preview-name">{{ project.name }}</span>
-            </div>
+            @if (project.image) {
+              <img
+                class="portfolio__preview-img"
+                [src]="project.image"
+                [alt]="project.imageAlt"
+                loading="lazy"
+                decoding="async"
+                width="1200"
+                height="675"
+              />
+            } @else {
+              <div class="portfolio__preview-inner">
+                <span class="portfolio__preview-name">{{ project.name }}</span>
+              </div>
+            }
           </div>
           <div class="portfolio__info">
             <div class="portfolio__meta">
