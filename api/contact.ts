@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import nodemailer from 'nodemailer';
+import { createTransport } from 'nodemailer';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Solo aceptar POST
@@ -21,7 +21,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     other: 'Otro',
   };
 
-  const transporter = nodemailer.createTransport({
+  const transporter = createTransport({
     service: 'gmail',
     auth: {
       user: process.env['GMAIL_USER'],
