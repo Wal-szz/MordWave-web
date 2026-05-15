@@ -30,7 +30,7 @@ export class Portfolio {
       tags: ['Angular', 'SCSS', 'Responsive', 'Vercel'],
       url: 'https://tatto-landingpage.vercel.app',
       accentColor: '#C9A96E',
-      image: 'portfolio-ink-soul.gif',
+      image: 'portfolio-ink-soul.png',
       imageAlt: 'Captura de pantalla del sitio web Ink & Soul, estudio de tatuajes',
     },
   ]);
