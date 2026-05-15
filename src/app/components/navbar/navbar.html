@@ -1,0 +1,58 @@
+<header class="navbar" [class.scrolled]="scrolled()" role="banner">
+  <div class="navbar__inner section-container">
+
+    <a href="#hero" class="navbar__logo" aria-label="Mordwave — Ir al inicio">
+      <svg class="navbar__logo-icon" viewBox="0 0 500 500" fill="none" aria-hidden="true">
+        <path d="M90 370 L90 180 L210 290 L330 140 C370 195, 390 195, 430 165"
+          stroke="url(#ng)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="430" cy="165" r="22" fill="#5B3FD4"/>
+        <circle cx="430" cy="165" r="12" fill="#7C5CE8"/>
+        <defs>
+          <linearGradient id="ng" x1="90" y1="250" x2="430" y2="250" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="60%" stop-color="#8B6FE8"/>
+            <stop offset="100%" stop-color="#5B3FD4"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="navbar__logo-text">Mord<span class="navbar__logo-accent">wave</span></span>
+    </a>
+
+    <nav class="navbar__nav" aria-label="Navegación principal">
+      <ul class="navbar__links" role="list">
+        @for (link of navLinks; track link.href) {
+          <li>
+            <a [href]="link.href" class="navbar__link" (click)="closeMenu()">{{ link.label }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <a href="#contact" class="btn-primary navbar__cta">Contáctanos</a>
+
+    <button
+      class="navbar__hamburger"
+      [class.open]="menuOpen()"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="mobile-menu"
+      aria-label="Abrir menú"
+      type="button"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <nav id="mobile-menu" class="navbar__mobile" aria-label="Menú móvil">
+      <ul role="list">
+        @for (link of navLinks; track link.href) {
+          <li><a [href]="link.href" class="navbar__mobile-link" (click)="closeMenu()">{{ link.label }}</a></li>
+        }
+        <li><a href="#contact" class="btn-primary" (click)="closeMenu()">Contáctanos</a></li>
+      </ul>
+    </nav>
+  }
+</header>

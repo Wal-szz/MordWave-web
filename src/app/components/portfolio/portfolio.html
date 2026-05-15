@@ -1,0 +1,44 @@
+<section id="portfolio" class="portfolio-section" aria-labelledby="portfolio-title">
+  <div class="section-container">
+
+    <p class="portfolio__eyebrow">Nuestro trabajo</p>
+    <h2 id="portfolio-title" class="section-title">Portafolio</h2>
+    <p class="section-subtitle">
+      Proyectos reales, resultados reales. Cada sitio construido con atención al detalle.
+    </p>
+
+    <ul class="portfolio__grid" role="list">
+      @for (project of projects(); track project.id) {
+        <li class="portfolio__card">
+          <div class="portfolio__preview" [style.--accent]="project.accentColor">
+            <div class="portfolio__preview-inner">
+              <span class="portfolio__preview-name">{{ project.name }}</span>
+            </div>
+          </div>
+          <div class="portfolio__info">
+            <div class="portfolio__meta">
+              <span class="portfolio__category">{{ project.category }}</span>
+            </div>
+            <h3 class="portfolio__title">{{ project.name }}</h3>
+            <p class="portfolio__description">{{ project.description }}</p>
+            <ul class="portfolio__tags" role="list">
+              @for (tag of project.tags; track tag) {
+                <li class="portfolio__tag">{{ tag }}</li>
+              }
+            </ul>
+            <a [href]="project.url" target="_blank" rel="noopener noreferrer"
+               class="btn-secondary portfolio__link">
+              Ver sitio
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </li>
+      }
+    </ul>
+
+    <div class="portfolio__cta">
+      <p class="portfolio__cta-text">¿Querés ser el próximo?</p>
+      <a href="#contact" class="btn-primary">Hablemos de tu proyecto</a>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,151 @@
-/* You can add global styles to this file, and also import other style files */
+/* ── Variables globales ───────────────────────────────────────── */
+:root {
+  --color-black:      #080808;
+  --color-dark:       #0d0d0d;
+  --color-dark-gray:  #111111;
+  --color-gray:       #222222;
+  --color-mid-gray:   #888888;
+  --color-white:      #ffffff;
+  --color-light-gray: #aaaaaa;
+  --color-purple:     #5B3FD4;
+  --color-purple-light: #7C5CE8;
+  --color-purple-dim: rgba(91, 63, 212, 0.1);
+
+  --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  --transition: 0.25s ease;
+  --radius: 6px;
+}
+
+/* ── Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Utilidades globales ──────────────────────────────────────── */
+.section-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--color-light-gray);
+  margin-bottom: 4rem;
+  max-width: 540px;
+  text-align: center;
+  margin-inline: auto;
+}
+
+/* ── Skip link (accessibilidad) ──────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--color-purple);
+  color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  z-index: 9999;
+  transition: top 0.2s;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+/* ── Botones globales ─────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background-color: var(--color-purple);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+
+  &:hover, &:focus-visible {
+    background-color: var(--color-purple-light);
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-purple);
+    outline-offset: 3px;
+  }
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background-color: transparent;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-mid-gray);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+
+  &:hover, &:focus-visible {
+    border-color: var(--color-purple);
+    color: var(--color-purple);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-purple);
+    outline-offset: 3px;
+  }
+}

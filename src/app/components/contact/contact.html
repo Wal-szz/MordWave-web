@@ -1,0 +1,123 @@
+<section id="contact" class="contact-section" aria-labelledby="contact-title">
+  <div class="section-container">
+
+    <p class="contact__eyebrow">Hablemos</p>
+    <h2 id="contact-title" class="section-title">Iniciá tu proyecto</h2>
+    <p class="section-subtitle">
+      Contanos qué necesitás y te respondemos en menos de 24 horas.
+    </p>
+
+    <div class="contact__wrapper">
+
+      @if (submitted()) {
+        <div class="contact__success" role="status" aria-live="polite">
+          <span class="contact__success-icon" aria-hidden="true">✓</span>
+          <h3 class="contact__success-title">¡Mensaje enviado!</h3>
+          <p class="contact__success-text">
+            Gracias por escribirnos. Te respondemos a la brevedad a
+            <strong>mordewave&#64;gmail.com</strong>.
+          </p>
+          <button type="button" class="btn-secondary" (click)="submitted.set(false)">
+            Enviar otro mensaje
+          </button>
+        </div>
+      } @else {
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="contact__form" novalidate>
+
+          <div class="contact__row">
+            <div class="contact__field">
+              <label class="contact__label" for="contact-name">Nombre</label>
+              <input
+                id="contact-name"
+                type="text"
+                class="contact__input"
+                formControlName="name"
+                autocomplete="name"
+                placeholder="Tu nombre"
+                [class.contact__input--error]="hasError('name', 'required') || hasError('name', 'minlength')"
+                aria-required="true"
+              />
+              @if (hasError('name', 'required')) {
+                <p class="contact__error" role="alert">El nombre es requerido.</p>
+              } @else if (hasError('name', 'minlength')) {
+                <p class="contact__error" role="alert">Mínimo 2 caracteres.</p>
+              }
+            </div>
+
+            <div class="contact__field">
+              <label class="contact__label" for="contact-email">Email</label>
+              <input
+                id="contact-email"
+                type="email"
+                class="contact__input"
+                formControlName="email"
+                autocomplete="email"
+                placeholder="tu@email.com"
+                [class.contact__input--error]="hasError('email', 'required') || hasError('email', 'email')"
+                aria-required="true"
+              />
+              @if (hasError('email', 'required')) {
+                <p class="contact__error" role="alert">El email es requerido.</p>
+              } @else if (hasError('email', 'email')) {
+                <p class="contact__error" role="alert">Ingresá un email válido.</p>
+              }
+            </div>
+          </div>
+
+          <div class="contact__field">
+            <label class="contact__label" for="contact-service">Servicio de interés</label>
+            <select
+              id="contact-service"
+              class="contact__select"
+              formControlName="service"
+              [class.contact__input--error]="hasError('service', 'required')"
+              aria-required="true"
+            >
+              <option value="" disabled>Seleccioná un servicio</option>
+              <option value="landing">Landing Page</option>
+              <option value="website">Sitio Web completo</option>
+              <option value="pyme">Pyme / Negocio local</option>
+              <option value="other">Otro</option>
+            </select>
+            @if (hasError('service', 'required')) {
+              <p class="contact__error" role="alert">Seleccioná un servicio.</p>
+            }
+          </div>
+
+          <div class="contact__field">
+            <label class="contact__label" for="contact-message">Mensaje</label>
+            <textarea
+              id="contact-message"
+              class="contact__textarea"
+              formControlName="message"
+              rows="5"
+              placeholder="Contanos de tu proyecto, tu negocio, qué necesitás..."
+              [class.contact__input--error]="hasError('message', 'required') || hasError('message', 'minlength')"
+              aria-required="true"
+            ></textarea>
+            @if (hasError('message', 'required')) {
+              <p class="contact__error" role="alert">El mensaje es requerido.</p>
+            } @else if (hasError('message', 'minlength')) {
+              <p class="contact__error" role="alert">Mínimo 10 caracteres.</p>
+            }
+          </div>
+
+          <button
+            type="submit"
+            class="btn-primary contact__submit"
+            [disabled]="sending()"
+            [attr.aria-busy]="sending()"
+          >
+            @if (sending()) {
+              Enviando...
+            } @else {
+              Enviar mensaje
+            }
+          </button>
+
+        </form>
+      }
+
+    </div>
+  </div>
+</section>
