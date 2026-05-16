@@ -30,6 +30,8 @@ function sanitize(str: unknown): string {
 }
 
 const ALLOWED_ORIGINS = [
+  'https://mordwave.com',
+  'https://www.mordwave.com',
   'https://mord-wave-web.vercel.app',
   'http://localhost:4200',
 ];
