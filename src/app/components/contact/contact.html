@@ -24,6 +24,12 @@
       } @else {
         <form [formGroup]="form" (ngSubmit)="onSubmit()" class="contact__form" novalidate>
 
+          <!-- Honeypot: invisible para humanos, los bots lo llenan -->
+          <div class="contact__honeypot" aria-hidden="true">
+            <label for="contact-website">Website</label>
+            <input id="contact-website" type="text" formControlName="website" tabindex="-1" autocomplete="off"/>
+          </div>
+
           <div class="contact__row">
             <div class="contact__field">
               <label class="contact__label" for="contact-name">Nombre</label>

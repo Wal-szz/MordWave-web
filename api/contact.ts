@@ -7,7 +7,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Método no permitido' });
   }
 
-  const { name, email, service, message } = req.body ?? {};
+  const { name, email, service, message, website } = req.body ?? {};
+
+  // Honeypot: si viene con valor es un bot, respondemos 200 para no alertarlos
+  if (website) {
+    return res.status(200).json({ success: true });
+  }
 
   // Validación básica
   if (!name || !email || !service || !message) {
