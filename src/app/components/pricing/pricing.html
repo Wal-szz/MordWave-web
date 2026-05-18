@@ -2,14 +2,14 @@
   <div class="section-container">
 
     <p class="pricing__eyebrow">Precios</p>
-    <h2 id="pricing-title" class="section-title">Precios claros,<br>sin sorpresas.</h2>
+    <h2 id="pricing-title" class="section-title">Precios claros, sin sorpresas.</h2>
     <p class="section-subtitle">
       Sin letra chica. Elegís el plan que más se adapta a tu negocio.
     </p>
 
     <ul class="pricing__grid" role="list">
-      @for (plan of plans(); track plan.id) {
-        <li class="pricing__card" [class.pricing__card--highlighted]="plan.highlighted">
+      @for (plan of plans(); track plan.id; let i = $index) {
+        <li class="pricing__card" [class.pricing__card--highlighted]="plan.highlighted" appReveal [revealDelay]="i + 1">
 
           @if (plan.badge) {
             <span class="pricing__badge">{{ plan.badge }}</span>

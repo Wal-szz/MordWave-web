@@ -6,16 +6,33 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(160deg, #080808 0%, #0a0810 100%);
+  background: linear-gradient(160deg, #060610 0%, #0a0816 100%);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 36px 36px;
+    pointer-events: none;
+    z-index: 0;
+  }
 }
 
 .hero__bg-glow {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  animation: glow-breathe 9s ease-in-out infinite;
   background:
-    radial-gradient(ellipse at 80% 20%, rgba(91, 63, 212, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(91, 63, 212, 0.06) 0%, transparent 50%);
+    radial-gradient(ellipse at 75% 15%, rgba(91, 63, 212, 0.28) 0%, transparent 52%),
+    radial-gradient(ellipse at 15% 85%, rgba(91, 63, 212, 0.14) 0%, transparent 45%),
+    radial-gradient(ellipse at 95% 60%, rgba(124, 92, 232, 0.1) 0%, transparent 38%);
+}
+
+@keyframes glow-breathe {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.65; }
 }
 
 .hero__content {

@@ -11,7 +11,7 @@
   --color-purple-light: #7C5CE8;
   --color-purple-dim: rgba(91, 63, 212, 0.1);
 
-  --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-heading: 'Syne', system-ui, sans-serif;
   --font-body:    'Inter', system-ui, sans-serif;
 
   --transition: 0.25s ease;
@@ -73,6 +73,21 @@ img, svg {
   text-align: center;
   margin-inline: auto;
 }
+
+/* ── Reveal animations ───────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal--delay-1 { transition-delay: 0.1s; }
+.reveal--delay-2 { transition-delay: 0.2s; }
+.reveal--delay-3 { transition-delay: 0.3s; }
 
 /* ── Skip link (accessibilidad) ──────────────────────────────── */
 .skip-link {

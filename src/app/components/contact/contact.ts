@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RevealDirective],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -41,7 +42,7 @@ export class Contact {
       },
       error: () => {
         this.sending.set(false);
-        this.error.set('Hubo un error al enviar el mensaje. Intentá de nuevo o escribinos a mordewave@gmail.com');
+        this.error.set('Hubo un error al enviar el mensaje. Intentá de nuevo o escribinos a mordwave@gmail.com');
       },
     });
   }

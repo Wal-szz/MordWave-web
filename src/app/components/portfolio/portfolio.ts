@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 interface Project {
   id: number;
@@ -14,7 +15,7 @@ interface Project {
 
 @Component({
   selector: 'app-portfolio',
-  imports: [],
+  imports: [RevealDirective],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
