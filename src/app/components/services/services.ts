@@ -26,7 +26,7 @@ export class Services {
         'Diseño personalizado',
         'Optimizada para móvil',
         'Formulario de contacto',
-        'Hosting incluido',
+        'Sin mensualidad',
       ],
     },
     {

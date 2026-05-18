@@ -33,5 +33,17 @@ export class Portfolio {
       image: 'portfolio-ink-soul.png',
       imageAlt: 'Captura de pantalla del sitio web Ink & Soul, estudio de tatuajes',
     },
+    {
+      id: 2,
+      name: "Nulanio's Burgers",
+      category: 'Sitio Web',
+      description:
+        "Sitio web para restaurante de hamburguesas artesanales. Diseño oscuro con tipografía impactante, menú completo y opciones de delivery y locales.",
+      tags: ['Angular', 'SCSS', 'Responsive', 'Vercel'],
+      url: 'https://nulanios-burgers.vercel.app',
+      accentColor: '#D4A017',
+      image: 'portfolio-nulanios.png',
+      imageAlt: "Captura de pantalla del sitio web Nulanio's Burgers",
+    },
   ]);
 }

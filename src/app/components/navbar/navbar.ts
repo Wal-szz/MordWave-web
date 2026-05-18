@@ -17,6 +17,7 @@ export class Navbar {
   navLinks = [
     { label: 'Inicio',     href: '#hero' },
     { label: 'Servicios',  href: '#services' },
+    { label: 'Precios',    href: '#pricing' },
     { label: 'Portafolio', href: '#portfolio' },
     { label: 'Contacto',   href: '#contact' },
   ];
