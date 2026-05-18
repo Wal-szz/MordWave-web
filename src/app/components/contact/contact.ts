@@ -42,7 +42,7 @@ export class Contact {
       },
       error: () => {
         this.sending.set(false);
-        this.error.set('Hubo un error al enviar el mensaje. Intentá de nuevo o escribinos a mordwave@gmail.com');
+        this.error.set('Hubo un error al enviar el mensaje. Intentá de nuevo o escribinos a mordewave@gmail.com');
       },
     });
   }
