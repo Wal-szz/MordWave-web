@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 interface Plan {
   id: number;
@@ -15,7 +16,7 @@ interface Plan {
 
 @Component({
   selector: 'app-pricing',
-  imports: [],
+  imports: [RevealDirective],
   templateUrl: './pricing.html',
   styleUrl: './pricing.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

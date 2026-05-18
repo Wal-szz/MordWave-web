@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 interface Service {
   id: number;
-  icon: string;
+  icon: 'landing' | 'web' | 'pyme';
+  number: string;
   title: string;
   description: string;
   features: string[];
@@ -10,7 +12,7 @@ interface Service {
 
 @Component({
   selector: 'app-services',
-  imports: [],
+  imports: [RevealDirective],
   templateUrl: './services.html',
   styleUrl: './services.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,7 +21,8 @@ export class Services {
   readonly services = signal<Service[]>([
     {
       id: 1,
-      icon: '⚡',
+      icon: 'landing',
+      number: '01',
       title: 'Landing Page',
       description: 'Una página de presentación profesional, diseñada para convertir visitas en clientes.',
       features: [
@@ -31,7 +34,8 @@ export class Services {
     },
     {
       id: 2,
-      icon: '🌐',
+      icon: 'web',
+      number: '02',
       title: 'Sitio Web',
       description: 'Páginas web completas con múltiples secciones, ideal para negocios que necesitan más.',
       features: [
@@ -43,9 +47,10 @@ export class Services {
     },
     {
       id: 3,
-      icon: '🏪',
+      icon: 'pyme',
+      number: '03',
       title: 'Pymes',
-      description: 'Solución web pensada para pequeñas y medianas empresas locales que quieren presencia digital profesional sin pagar precios de agencia.',
+      description: 'Solución web para pequeñas y medianas empresas locales que quieren presencia digital profesional sin pagar precios de agencia.',
       features: [
         'Análisis de necesidades',
         'Diseño acorde al negocio',

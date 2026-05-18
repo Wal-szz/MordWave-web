@@ -8,8 +8,8 @@
     </p>
 
     <ul class="portfolio__grid" role="list">
-      @for (project of projects(); track project.id) {
-        <li class="portfolio__card">
+      @for (project of projects(); track project.id; let i = $index) {
+        <li class="portfolio__card" appReveal [revealDelay]="i + 1">
           <div class="portfolio__preview" [style.--accent]="project.accentColor">
             @if (project.image) {
               <img
