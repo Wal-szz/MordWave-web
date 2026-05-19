@@ -3,7 +3,7 @@ import { RevealDirective } from '../../directives/reveal.directive';
 
 interface Service {
   id: number;
-  icon: 'landing' | 'web' | 'pyme';
+  icon: 'landing' | 'web';
   number: string;
   title: string;
   description: string;
@@ -43,19 +43,6 @@ export class Services {
         'Panel de administración',
         'SEO básico incluido',
         'Soporte post-entrega',
-      ],
-    },
-    {
-      id: 3,
-      icon: 'pyme',
-      number: '03',
-      title: 'Pymes',
-      description: 'Solución web para pequeñas y medianas empresas locales que quieren presencia digital profesional sin pagar precios de agencia.',
-      features: [
-        'Análisis de necesidades',
-        'Diseño acorde al negocio',
-        'Integración con redes sociales',
-        'Precios accesibles',
       ],
     },
   ]);
