@@ -4,7 +4,7 @@
     <p class="portfolio__eyebrow">Nuestro trabajo</p>
     <h2 id="portfolio-title" class="section-title">Portafolio</h2>
     <p class="section-subtitle">
-      Proyectos reales, resultados reales. Cada sitio construido con atención al detalle.
+      Proyectos reales y conceptos de diseño. Cada sitio construido con atención al detalle.
     </p>
 
     <ul class="portfolio__grid" role="list">
@@ -30,9 +30,18 @@
           <div class="portfolio__info">
             <div class="portfolio__meta">
               <span class="portfolio__category">{{ project.category }}</span>
+              @if (project.isDemo) {
+                <span class="portfolio__demo-badge">Concepto</span>
+              }
             </div>
             <h3 class="portfolio__title">{{ project.name }}</h3>
             <p class="portfolio__description">{{ project.description }}</p>
+            @if (project.highlight) {
+              <div class="portfolio__highlight">
+                <span aria-hidden="true">⚡</span>
+                {{ project.highlight }}
+              </div>
+            }
             <ul class="portfolio__tags" role="list">
               @for (tag of project.tags; track tag) {
                 <li class="portfolio__tag">{{ tag }}</li>
@@ -49,7 +58,7 @@
     </ul>
 
     <div class="portfolio__cta">
-      <p class="portfolio__cta-text">¿Querés ser el próximo?</p>
+      <p class="portfolio__cta-text">¿Quieres ser el próximo?</p>
       <a href="#contact" class="btn-primary">Hablemos de tu proyecto</a>
     </div>
   </div>
