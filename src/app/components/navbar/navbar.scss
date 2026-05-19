@@ -68,8 +68,24 @@
   text-transform: uppercase;
   color: var(--color-light-gray);
   transition: color var(--transition);
+  position: relative;
 
-  &:hover, &:focus-visible { color: var(--color-white); }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-purple);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover, &:focus-visible {
+    color: var(--color-white);
+    &::after { width: 100%; }
+  }
+
   &:focus-visible { outline: 2px solid var(--color-purple); outline-offset: 3px; border-radius: 2px; }
 }
 
