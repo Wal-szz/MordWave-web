@@ -23,14 +23,14 @@ export class HowItWorks {
       number: '01',
       icon: 'chat',
       title: 'Conversamos',
-      description: 'Nos contás tu negocio y qué necesitás. Sin formularios complicados — una conversación directa por email o DM.',
+      description: 'Cuéntanos tu negocio y qué necesitas. Sin formularios complicados — una conversación directa por email o DM.',
     },
     {
       id: 2,
       number: '02',
       icon: 'design',
       title: 'Diseñamos',
-      description: 'Creamos el diseño a medida de tu negocio antes de escribir una línea de código. Vos lo aprobás.',
+      description: 'Creamos el diseño a medida de tu negocio antes de escribir una línea de código. Tú lo apruebas.',
     },
     {
       id: 3,

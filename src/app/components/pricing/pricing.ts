@@ -30,7 +30,7 @@ export class Pricing {
       price: '$60.000',
       period: 'Pago único',
       then: null,
-      description: 'Ideal si ya tenés hosting y solo necesitás el sitio listo.',
+      description: 'Ideal si ya tienes hosting y solo necesitas el sitio listo.',
       features: [
         'Diseño 100% a medida',
         'Optimizado para móvil',
